@@ -68,6 +68,11 @@ export class MusicPlayerComponent implements OnInit, OnDestroy {
   }
 
   getAudioUrl(fileLocation: string): string {
-    return `${environment.apiUrl}/${fileLocation}`;
+    // If the file_location is from Telegram (starts with "music/", etc.)
+    if (!fileLocation.startsWith('http')) {
+      return `${environment.telegramFileApiUrl}${environment.botToken}/${fileLocation}`;
+    }
+    // If it's already a complete URL
+    return fileLocation;
   }
 }
