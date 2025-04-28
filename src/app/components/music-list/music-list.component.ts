@@ -100,7 +100,8 @@ export class MusicListComponent implements OnInit {
   constructor(private musicService: MusicService) {}
 
   ngOnInit(): void {
-
+    console.log("ngOnInit MusicListComponent");
+    
     // In a real app, you would get the userId from Telegram Mini App
     this.userId = this.getTelegramUserId();
     console.log("userid", this.userId);
