@@ -15,7 +15,7 @@ export class MusicService {
   constructor(private http: HttpClient) {}
 
   getUserMusic(userId: string): Observable<Music[]> {
-    return this.http.get<Music[]>(`${this.apiUrl}/api/Music/${userId}`);
+    return this.http.get<Music[]>(`${this.apiUrl}/api/Music/{userId}`);
   }
 
   getPlaylists(userId: string): Observable<Playlist[]> {

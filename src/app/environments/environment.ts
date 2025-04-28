@@ -2,7 +2,8 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:5230',
   telegramFileApiUrl: 'https://api.telegram.org/file/bot',
-  botToken: '8157882201:AAH9C67VbL47h9gFCRxCYpyvrRHqareWCVE' // Replace with your actual bot token
+  botToken: '8157882201:AAH9C67VbL47h9gFCRxCYpyvrRHqareWCVE'
+  // botToken: '7756963617:AAFAx5qG31in-0BiMOmkrkXIG1kPOP1BXYM' // Replace with your actual bot token
 };
 
 // export const environment = {

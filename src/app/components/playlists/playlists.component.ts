@@ -123,9 +123,18 @@ export class PlaylistsComponent implements OnInit {
 
   getTelegramUserId(): string {
     if (window.Telegram && window.Telegram.WebApp) {
-      return window.Telegram.WebApp.initDataUnsafe?.user?.id.toString() || '';
+      console.log('Telegram WebApp detected. Attempting to retrieve user ID...');
+      const userId = window.Telegram.WebApp.initDataUnsafe?.user?.id.toString();
+      if (userId) {
+        console.log(`User ID retrieved: ${userId}`);
+        return userId;
+      } else {
+        console.log('User ID not found in Telegram WebApp data. Using default ID.');
+      }
+    } else {
+      console.log('Telegram WebApp not detected. Using default ID.');
     }
-    return '';
+    return '1031267509';
   }
 
   loadPlaylists(): void {
