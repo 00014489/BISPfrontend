@@ -100,22 +100,25 @@ export class MusicListComponent implements OnInit {
   constructor(private musicService: MusicService) {}
 
   ngOnInit(): void {
+
     // In a real app, you would get the userId from Telegram Mini App
     this.userId = this.getTelegramUserId();
+    console.log("userid", this.userId);
+    
     this.loadMusic();
   }
 
   getTelegramUserId(): string {
-    // Use the Telegram WebApp object to get user info
-    if (window.Telegram && window.Telegram.WebApp) {
-      return window.Telegram.WebApp.initDataUnsafe?.user?.id.toString() || '';
-    }
-    return '';
+    const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id;
+    return userId ? userId.toString() : '1031267509';
   }
+  
 
   loadMusic(): void {
     this.musicService.getUserMusic(this.userId).subscribe({
       next: (data) => {
+        console.log("userid", this.userId);
+                
         this.songs = data;
         this.filteredSongs = data;
       },
